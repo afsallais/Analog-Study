@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f4f5f7">
+<title>Analog Design Interview Prep</title>
+<style>
+*{box-sizing:border-box} :root{--bg:#f4f5f7;--p:#fff;--t:#111827;--m:#687386;--l:#e2e6ec;--a:#315efb;--s:#eef2ff;--dark:#0b1020}body.dark{--bg:#090d16;--p:#111827;--t:#edf1f7;--m:#9aa5b5;--l:#273143;--s:#18213a}body{margin:0;background:var(--bg);color:var(--t);font:14px Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input{font:inherit}button{cursor:pointer}header{height:68px;background:var(--p);border-bottom:1px solid var(--l);display:flex;align-items:center;gap:18px;padding:0 22px;position:sticky;top:0;z-index:20}header b{min-width:190px;font-size:15px}header small{display:block;color:var(--m);font-size:9px;text-transform:uppercase;letter-spacing:.12em}.search{height:40px;max-width:650px;flex:1;margin:auto;border:1px solid var(--l);border-radius:11px;display:flex;align-items:center;padding:0 11px;gap:8px;color:var(--m)}.search input{border:0;outline:0;background:none;color:var(--t);width:100%}.search kbd{font-size:10px;border:1px solid var(--l);padding:3px 6px;border-radius:5px}header button{border:0;background:none;color:var(--t);font-size:19px}.layout{display:grid;grid-template-columns:290px 1fr;min-height:calc(100vh - 68px)}aside{background:var(--p);border-right:1px solid var(--l);padding:20px 15px;position:sticky;top:68px;height:calc(100vh - 68px);overflow:auto}.sidehead{display:flex;justify-content:space-between;color:var(--m);font-size:10px;font-weight:800;letter-spacing:.12em;padding:0 7px 15px}.sidehead button{border:0;background:none;font-size:20px;color:var(--t)}.progress{background:var(--s);padding:13px;border-radius:12px;margin-bottom:15px}.progress>div{display:flex;justify-content:space-between;font-size:12px}.progress hr{border:0;border-top:5px solid var(--a);border-radius:8px;margin:10px 0}.progress span{color:var(--m);font-size:11px}.month{margin:12px 0}.month h4{font-size:9px;color:var(--m);letter-spacing:.12em;margin:12px 8px 5px}.link{display:block;text-decoration:none;color:var(--m);padding:8px 9px;border-radius:8px;font-size:12px}.link:hover,.link.active{background:var(--s);color:var(--t)}main{max-width:1200px;width:100%;margin:auto;padding:38px 46px}.hero{background:var(--dark);color:#fff;border-radius:23px;min-height:330px;padding:50px;display:flex;justify-content:space-between;align-items:center;overflow:hidden}.hero label,section>label{font-size:10px;color:#8097ff;font-weight:800;letter-spacing:.15em}.hero h1{font-size:46px;line-height:1.03;letter-spacing:-.05em;margin:12px 0}.hero em{color:#9eafff;font-style:normal}.hero p{color:#b8c0ce;max-width:570px;line-height:1.7}.primary{border:0;border-radius:9px;padding:12px 16px;font-weight:750}.chip{width:210px;height:210px;border:1px solid #ffffff28;border-radius:25px;display:grid;place-items:center;text-align:center;color:#a9b8ff;font-weight:900;letter-spacing:.13em;transform:rotate(-7deg);background:repeating-linear-gradient(0deg,#ffffff05,#ffffff05 20px,#ffffff0b 21px),repeating-linear-gradient(90deg,#ffffff05,#ffffff05 20px,#ffffff0b 21px)}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--l);border:1px solid var(--l);border-radius:14px;overflow:hidden;margin:20px 0 45px}.stats div{background:var(--p);padding:18px 20px}.stats b{font-size:24px;display:block}.stats small{color:var(--m);font-size:9px;letter-spacing:.14em;font-weight:800}h2{font-size:25px;letter-spacing:-.03em}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card,.result,.week{background:var(--p);border:1px solid var(--l);border-radius:15px;padding:19px}.card h3{font-size:17px;margin:7px 0 14px}.card label{font-size:9px;color:var(--a);letter-spacing:.12em}.row{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--l);padding:8px 0;font-size:12px;color:var(--m)}.row button{border:0;background:none;color:var(--t);text-align:left}.tick{width:19px;height:19px;border:1px solid var(--l);border-radius:5px;background:none;color:var(--t)}.done .rowtext{text-decoration:line-through;color:var(--m)}.week{padding:30px}.week h2{font-size:32px;margin:6px 0}.week p{color:var(--m)}.complete{float:right;padding:10px;border:1px solid var(--l);background:var(--p);border-radius:9px}.complete.done{background:var(--a);color:white}.week h4{color:var(--a);font-size:10px;letter-spacing:.13em;text-transform:uppercase;margin-top:30px}.week li{margin:7px 0}.result{margin:8px 0;cursor:pointer}.result small{display:block;color:var(--m);margin-top:4px}.hide{display:none}#shade{display:none}@media(max-width:900px){header b{min-width:auto}.layout{display:block}aside{position:fixed;z-index:40;left:-310px;top:0;width:290px;height:100vh;transition:.2s;box-shadow:15px 0 40px #0003}aside.open{left:0}#shade.show{display:block;position:fixed;inset:0;background:#0006;z-index:30}main{padding:25px 20px}.cards{grid-template-columns:repeat(2,1fr)}#menu{display:block}}@media(min-width:901px){#menu,#close{display:none}}@media(max-width:600px){header{height:62px;padding:0 11px;gap:8px}.search kbd{display:none}.hero{padding:28px 23px;min-height:auto}.hero h1{font-size:35px}.chip{display:none}.hero p{font-size:13px}.stats{grid-template-columns:repeat(2,1fr);margin-bottom:35px}.cards{grid-template-columns:1fr}.week{padding:20px}main{padding:17px 13px}}
+/* ---------- Display modes ---------- */
+body.eink{
+  --bg:#f2eee3;
+  --p:#faf8f1;
+  --t:#292821;
+  --m:#716f66;
+  --l:#d5d0c3;
+  --a:#8b5a32;
+  --s:#eee8d8;
+  --dark:#302f2a;
+  --shadow:none;
+}
+body.eink .topbar{background:#f7f4eb}
+body.eink .hero{background:#e7e0d0;color:#292821;border:1px solid #cec7b8}
+body.eink .hero p{color:#666257}
+body.eink .hero em{color:#8b5a32}
+body.eink .primary{background:#302f2a;color:#faf8f1}
+body.eink .chip{background:#eee8d8;border-color:#bbb4a5;color:#8b5a32}
+body.eink .stats{background:#d5d0c3}
+body.eink .stats div,.eink .card,.eink .week,.eink .result{box-shadow:none}
+body.eink .progress-track{background:#d5d0c3}
+body.eink .progress-track div{background:#8b5a32}
+body.eink .week-dot{border-color:#8b5a32}
+body.eink .week-link.done .week-dot{background:#8b5a32;border-color:#8b5a32}
+body.eink .primary{border:1px solid #302f2a}
+body.eink .eyebrow,body.eink .week h4{color:#8b5a32}
+body.eink ::selection{background:#d9c8a7;color:#292821}
+
+/* A restrained color-E-Ink palette inspired by print/e-paper rather than LCD neon. */
+body.eink .accent-red{color:#a34f45}
+body.eink .accent-blue{color:#5d6e80}
+body.eink .accent-green{color:#65745c}
+body.eink .accent-yellow{color:#a88745}
+
+.theme-switch{
+  display:flex;align-items:center;gap:2px;
+  border:1px solid var(--line);background:var(--panel);
+  padding:3px;border-radius:10px;
+}
+.theme-switch button{
+  border:0;background:transparent;color:var(--muted);
+  width:28px;height:28px;border-radius:7px;font-size:14px;
+}
+.theme-switch button:hover{background:var(--soft);color:var(--text)}
+.theme-switch button.active{background:var(--soft);color:var(--text);font-weight:800}
+
+body.eink .theme-switch button[data-theme="eink"]{
+  background:#e1d8c6;color:#514b40;
+}
+
+/* Keep the E Ink theme quiet: avoid animations and excessive visual effects. */
+body.eink *{scroll-behavior:auto}
+body.eink .month-card:hover{transform:none}
+body.eink .chip{transform:none}
+
+</style>
+</head>
+<body>
+<header>
+<button id="menu" aria-label="Open menu">☰</button>
+<b>Analog Design <small>Interview Prep</small></b>
+<div class="search">⌕ <input id="search" type="search" placeholder="Search topics, weeks, questions…" autocomplete="off"><kbd>⌘K</kbd></div>
+<div class="theme-switch" aria-label="Display mode"><button data-theme="light" title="Light mode">☀</button><button data-theme="dark" title="Dark mode">◐</button><button data-theme="eink" title="E Ink mode">▤</button></div>
+</header>
+<div class="layout">
+<aside id="side"><div class="sidehead"><span>INDEX · 26 WEEKS</span><button id="close" aria-label="Close menu">×</button></div><div class="progress"><div><span>Progress</span><b id="pct">0%</b></div><hr><span id="count">0 / 26 weeks</span></div><nav id="index"></nav></aside>
+<div id="shade"></div>
+<main>
+<section class="hero"><div><label>ANALOG IC / AMS</label><h1>From first principles<br><em>to interview-ready.</em></h1><p>Six months of devices, transistor circuits, amplifiers, feedback, stability, practical analog blocks and interview drills.</p><button class="primary" id="continue">Continue preparation →</button></div><div class="chip">ANALOG<br>CORE</div></section>
+<div class="stats"><div><b>26</b><small>WEEKS</small></div><div><b>6</b><small>MONTHS</small></div><div><b>100</b><small>QUESTIONS</small></div><div><b>5</b><small>MOCKS</small></div></div>
+<section id="results" class="hide"><h2 id="resultTitle"></h2><div id="resultList"></div></section>
+<section id="roadmap"><label>ROADMAP</label><h2>Six months at a glance</h2><div id="cards" class="cards"></div></section>
+<section id="week" class="hide"></section>
+</main></div>
+<script>
+const STUDY_DATA={"months": [{"name": "Month 1", "title": "Foundations", "weeks": [{"id": "week-1", "week": "Week 1", "title": "Circuit Analysis and Analog Intuition"}, {"id": "week-2", "week": "Week 2", "title": "MOSFET Device Fundamentals"}, {"id": "week-3", "week": "Week 3", "title": "Biasing and Basic Transistor Stages"}, {"id": "week-4", "week": "Week 4", "title": "Small-Signal Analysis"}]}, {"name": "Month 2", "title": "Core Analog Building Blocks", "weeks": [{"id": "week-5", "week": "Week 5", "title": "Current Mirrors"}, {"id": "week-6", "week": "Week 6", "title": "Differential Pair"}, {"id": "week-7", "week": "Week 7", "title": "Cascode and Gain Boosting"}, {"id": "week-8", "week": "Week 8", "title": "Single-Stage Amplifier Design"}]}, {"name": "Month 3", "title": "Frequency, Feedback and Stability", "weeks": [{"id": "week-9", "week": "Week 9", "title": "Frequency Response"}, {"id": "week-10", "week": "Week 10", "title": "Feedback"}, {"id": "week-11", "week": "Week 11", "title": "Miller Compensation"}, {"id": "week-12", "week": "Week 12", "title": "Stability and Compensation"}]}, {"name": "Month 4", "title": "Practical Analog Blocks", "weeks": [{"id": "week-13", "week": "Week 13", "title": "Op-Amp Architectures"}, {"id": "week-14", "week": "Week 14", "title": "OTA Design"}, {"id": "week-15", "week": "Week 15", "title": "Common-Mode Feedback"}, {"id": "week-16", "week": "Week 16", "title": "Bandgap and Voltage References"}, {"id": "week-17", "week": "Week 17", "title": "LDO and Power Management"}, {"id": "week-18", "week": "Week 18", "title": "Comparators"}]}, {"name": "Month 5", "title": "Nonidealities, Layout and Mixed Signal", "weeks": [{"id": "week-19", "week": "Week 19", "title": "Analog Noise"}, {"id": "week-20", "week": "Week 20", "title": "Matching, Offset and Analog Layout"}, {"id": "week-21", "week": "Week 21", "title": "ADC/DAC Fundamentals"}, {"id": "week-22", "week": "Week 22", "title": "Switched-Capacitor Circuits"}, {"id": "week-23", "week": "Week 23", "title": "Optional Advanced Breadth"}]}, {"name": "Month 6", "title": "Interview Mode", "weeks": [{"id": "week-24", "week": "Week 24", "title": "Full Design Problems"}, {"id": "week-25", "week": "Week 25", "title": "Mock Interview Week"}, {"id": "week-26", "week": "Week 26", "title": "Final Revision"}]}], "weeks": [{"id": "week-1", "week": "Week 1", "title": "Circuit Analysis and Analog Intuition", "month": "Month 1", "monthTitle": "Foundations", "topics": ["KCL, KVL, nodal analysis", "Thevenin/Norton", "RC/RLC response", "Poles and zeros"]}, {"id": "week-2", "week": "Week 2", "title": "MOSFET Device Fundamentals", "month": "Month 1", "monthTitle": "Foundations", "topics": ["NMOS/PMOS operation", "VTH and overdrive", "gm and ro", "Body effect", "Channel-length modulation", "gm/ID"]}, {"id": "week-3", "week": "Week 3", "title": "Biasing and Basic Transistor Stages", "month": "Month 1", "monthTitle": "Foundations", "topics": ["Common-source", "Common-gate", "Source follower", "Source degeneration", "Headroom"]}, {"id": "week-4", "week": "Week 4", "title": "Small-Signal Analysis", "month": "Month 1", "monthTitle": "Foundations", "topics": ["Small-signal model", "Gain", "Input/output resistance", "Miller effect", "Bandwidth"]}, {"id": "week-5", "week": "Week 5", "title": "Current Mirrors", "month": "Month 2", "monthTitle": "Core Analog Building Blocks", "topics": ["Basic current mirror", "Mirror ratio", "Compliance", "Cascode mirror", "Mismatch"]}, {"id": "week-6", "week": "Week 6", "title": "Differential Pair", "month": "Month 2", "monthTitle": "Core Analog Building Blocks", "topics": ["Large-signal steering", "Differential gain", "CMRR", "Common-mode range", "Offset"]}, {"id": "week-7", "week": "Week 7", "title": "Cascode and Gain Boosting", "month": "Month 2", "monthTitle": "Core Analog Building Blocks", "topics": ["Cascode", "Folded cascode", "Telescopic cascode", "Gain boosting", "Headroom"]}, {"id": "week-8", "week": "Week 8", "title": "Single-Stage Amplifier Design", "month": "Month 2", "monthTitle": "Core Analog Building Blocks", "topics": ["Single-stage amplifier design", "Gain/bandwidth trade-off", "Output swing", "Noise", "Power"]}, {"id": "week-9", "week": "Week 9", "title": "Frequency Response", "month": "Month 3", "monthTitle": "Frequency, Feedback and Stability", "topics": ["Poles and zeros", "Bode plots", "Unity-gain frequency", "Time constants"]}, {"id": "week-10", "week": "Week 10", "title": "Feedback", "month": "Month 3", "monthTitle": "Frequency, Feedback and Stability", "topics": ["Negative feedback", "Loop gain", "Sensitivity", "Feedback topologies"]}, {"id": "week-11", "week": "Week 11", "title": "Miller Compensation", "month": "Month 3", "monthTitle": "Frequency, Feedback and Stability", "topics": ["Miller capacitor", "Pole splitting", "RHP zero", "Slew rate"]}, {"id": "week-12", "week": "Week 12", "title": "Stability and Compensation", "month": "Month 3", "monthTitle": "Frequency, Feedback and Stability", "topics": ["Phase margin", "Gain margin", "Compensation", "Load stability"]}, {"id": "week-13", "week": "Week 13", "title": "Op-Amp Architectures", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["Two-stage op-amp", "Telescopic OTA", "Folded-cascode OTA", "Class-AB"]}, {"id": "week-14", "week": "Week 14", "title": "OTA Design", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["OTA sizing", "gm/ID", "GBW", "Power", "Noise"]}, {"id": "week-15", "week": "Week 15", "title": "Common-Mode Feedback", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["CMFB purpose", "CM sensing", "CM control", "CMFB stability"]}, {"id": "week-16", "week": "Week 16", "title": "Bandgap and Voltage References", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["PTAT/CTAT", "Bandgap", "Temperature cancellation", "Startup", "PSRR"]}, {"id": "week-17", "week": "Week 17", "title": "LDO and Power Management", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["LDO architecture", "Dropout", "PSRR", "Load transient", "Stability"]}, {"id": "week-18", "week": "Week 18", "title": "Comparators", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["Regeneration", "Offset", "Kickback", "Dynamic comparator", "Speed/power"]}, {"id": "week-19", "week": "Week 19", "title": "Analog Noise", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["Thermal noise", "Flicker noise", "Shot noise", "Input-referred noise"]}, {"id": "week-20", "week": "Week 20", "title": "Matching, Offset and Analog Layout", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["Mismatch", "Pelgrom intuition", "Common-centroid", "Interdigitation", "Parasitics"]}, {"id": "week-21", "week": "Week 21", "title": "ADC/DAC Fundamentals", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["Sampling", "Quantization", "INL/DNL", "ENOB", "SAR", "Sigma-delta"]}, {"id": "week-22", "week": "Week 22", "title": "Switched-Capacitor Circuits", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["Switched-capacitor resistor", "Charge injection", "Clock feedthrough", "kT/C"]}, {"id": "week-23", "week": "Week 23", "title": "Optional Advanced Breadth", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["PLLs", "VCOs", "Charge pumps", "Sensor interfaces", "RF/SerDes breadth"]}, {"id": "week-24", "week": "Week 24", "title": "Full Design Problems", "month": "Month 6", "monthTitle": "Interview Mode", "topics": ["Amplifier design problems", "OTA design", "Op-amp design", "LDO design", "Comparator design"]}, {"id": "week-25", "week": "Week 25", "title": "Mock Interview Week", "month": "Month 6", "monthTitle": "Interview Mode", "topics": ["Fundamentals mock", "Transistor-level mock", "Op-amp/stability mock", "Mixed-signal mock", "Resume defense"]}, {"id": "week-26", "week": "Week 26", "title": "Final Revision", "month": "Month 6", "monthTitle": "Interview Mode", "topics": ["Formula revision", "100-question checklist", "Whiteboard circuits", "Final mock"]}]};
+const D=STUDY_DATA;
+const $=s=>document.querySelector(s);
+let done=JSON.parse(localStorage.getItem('analog-progress')||'[]');
+
+function save(){localStorage.setItem('analog-progress',JSON.stringify(done));render()}
+function complete(id){done=done.includes(id)?done.filter(x=>x!==id):[...done,id];save()}
+
+function renderIndex(){
+  $('#index').innerHTML=D.months.map(m=>`<div class="month"><h4>${m.name} · ${m.title}</h4>${m.weeks.map(w=>`<a class="link ${done.includes(w.id)?'done':''}" data-open="${w.id}" href="#${w.id}">${done.includes(w.id)?'✓':'○'} ${w.week} · ${w.title}</a>`).join('')}</div>`).join('')
+}
+function renderCards(){
+  $('#cards').innerHTML=D.months.map(m=>`<article class="card"><label>${m.name.toUpperCase()}</label><h3>${m.title}</h3>${m.weeks.map(w=>`<div class="row ${done.includes(w.id)?'done':''}"><button data-open="${w.id}" class="rowtext">${w.week} · ${w.title}</button><button class="tick" data-toggle="${w.id}" aria-label="Toggle completion">${done.includes(w.id)?'✓':''}</button></div>`).join('')}</article>`).join('')
+}
+function render(){
+  renderIndex(); renderCards();
+  const p=Math.round(done.length/26*100);
+  $('#pct').textContent=p+'%'; $('#count').textContent=`${done.length} / 26 weeks`;
+}
+function openWeek(id){
+  const w=D.weeks.find(x=>x.id===id); if(!w)return;
+  $('#roadmap').classList.add('hide'); $('#results').classList.add('hide'); $('#week').classList.remove('hide');
+  $('#week').innerHTML=`<button class="complete ${done.includes(id)?'done':''}" data-complete="${id}">${done.includes(id)?'✓ Completed':'Mark complete'}</button><label>${w.month} · ${w.week}</label><h2>${w.title}</h2><p>Learn → derive → simulate → explain aloud.</p><h4>Study focus</h4><ul>${w.topics.map(x=>`<li>${x}</li>`).join('')}</ul><h4>Interview questions to practise</h4><ul><li>Derive the key equations without notes.</li><li>Draw the small-signal model and calculate gain.</li><li>Identify headroom, poles, noise and major trade-offs.</li><li>Explain what changes if power, speed, load or supply specifications move.</li><li>Design or debug the circuit on a whiteboard.</li></ul>`;
+  history.replaceState(null,'','#'+id); closeSide(); window.scrollTo({top:0,behavior:'smooth'});
+}
+function searchNow(){
+  const q=$('#search').value.toLowerCase().trim();
+  if(!q){$('#results').classList.add('hide');$('#roadmap').classList.remove('hide');$('#week').classList.add('hide');return}
+  $('#roadmap').classList.add('hide'); $('#week').classList.add('hide'); $('#results').classList.remove('hide');
+  const h=D.weeks.filter(w=>(w.title+' '+w.month+' '+w.topics.join(' ')).toLowerCase().includes(q));
+  $('#resultTitle').textContent=`${h.length} result${h.length===1?'':'s'} for “${q}”`;
+  $('#resultList').innerHTML=h.map(w=>`<div class="result" data-open="${w.id}"><b>${w.week} · ${w.title}</b><small>${w.month} · ${w.topics.join(' · ')}</small></div>`).join('')||'<div class="result">No matches. Try “MOS”, “differential”, “stability”, “noise”, “LDO” or “ADC”.</div>';
+}
+function closeSide(){$('#side').classList.remove('open');$('#shade').classList.remove('show')}
+function setTheme(mode){
+  document.body.classList.remove('dark','eink');
+  if(mode==='dark')document.body.classList.add('dark');
+  if(mode==='eink')document.body.classList.add('eink');
+  localStorage.setItem('analog-theme',mode);
+  document.querySelectorAll('[data-theme]').forEach(b=>b.classList.toggle('active',b.dataset.theme===mode));
+}
+
+document.addEventListener('click',e=>{
+  const o=e.target.closest('[data-open]');
+  if(o){e.preventDefault();openWeek(o.dataset.open);return}
+  const t=e.target.closest('[data-toggle]');
+  if(t){complete(t.dataset.toggle);return}
+  const c=e.target.closest('[data-complete]');
+  if(c){complete(c.dataset.complete);openWeek(c.dataset.complete)}
+});
+$('#search').addEventListener('input',searchNow);
+$('#continue').onclick=()=>openWeek(D.weeks.find(w=>!done.includes(w.id))?.id||'week-1');
+$('#menu').onclick=()=>{$('#side').classList.add('open');$('#shade').classList.add('show')};
+$('#close').onclick=closeSide; $('#shade').onclick=closeSide;
+$('#search').addEventListener('keydown',e=>{if(e.key==='Escape'){e.target.value='';searchNow();e.target.blur()}});
+document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#search').focus()}});
+document.querySelectorAll('[data-theme]').forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.theme)));
+setTheme(localStorage.getItem('analog-theme')||'light');
+render();
+if(location.hash.startsWith('#week-'))openWeek(location.hash.slice(1));
+
+</script>
+</body>
+</html>
