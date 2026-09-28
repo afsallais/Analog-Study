@@ -108,6 +108,7 @@ html{-webkit-text-size-adjust:100%}
  .row{padding:11px 0}.tick{width:32px;height:32px;flex:none}
  #drill{padding:18px}
 }
+.quick{display:flex;gap:8px;margin-bottom:16px}.quick .primary{background:var(--a);color:#fff;min-height:44px}.quick .ghost{min-height:44px;cursor:pointer}@media(max-width:600px){.quick>*{flex:1}}
 </style>
 </head>
 <body>
@@ -121,7 +122,7 @@ html{-webkit-text-size-adjust:100%}
 <aside id="side"><div class="sidehead"><span>INDEX · 26 WEEKS</span><button id="close" aria-label="Close menu">×</button></div><div class="progress"><div><span>Progress</span><b id="pct">0%</b></div><hr><span id="count">0 / 26 weeks</span></div><nav id="index"></nav></aside>
 <div id="shade"></div>
 <main>
-<section class="hero"><div><label>ANALOG IC / AMS</label><h1>From first principles<br><em>to interview-ready.</em></h1><p>Six months of devices, transistor circuits, amplifiers, feedback, stability, practical analog blocks and interview drills.</p><button class="primary" id="continue">Continue preparation →</button><button class="ghost" id="drillBtn">Random drill</button></div><div class="chip">ANALOG<br>CORE</div></section>
+<div class="quick"><button class="primary" id="continue">Continue →</button><button class="ghost" id="drillBtn">Random drill</button></div>
 <div class="stats"><div><b>26</b><small>WEEKS</small></div><div><b>6</b><small>MONTHS</small></div><div><b id="qstat">0</b><small>QUESTIONS DONE</small></div><div><b>5</b><small>MOCKS</small></div></div>
 <section id="results" class="hide"><h2 id="resultTitle"></h2><div id="resultList"></div></section>
 <section id="roadmap"><label>ROADMAP</label><h2>Six months at a glance</h2><div id="cards" class="cards"></div><div id="reports" class="reports"></div></section>
