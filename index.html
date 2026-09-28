@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f4f5f7">
 <title>Analog Design Interview Prep</title>
 <style>
@@ -43,15 +43,15 @@ body.eink .accent-yellow{color:#a88745}
 
 .theme-switch{
   display:flex;align-items:center;gap:2px;
-  border:1px solid var(--line);background:var(--panel);
+  border:1px solid var(--l);background:var(--p);
   padding:3px;border-radius:10px;
 }
 .theme-switch button{
-  border:0;background:transparent;color:var(--muted);
+  border:0;background:transparent;color:var(--m);
   width:28px;height:28px;border-radius:7px;font-size:14px;
 }
-.theme-switch button:hover{background:var(--soft);color:var(--text)}
-.theme-switch button.active{background:var(--soft);color:var(--text);font-weight:800}
+.theme-switch button:hover{background:var(--s);color:var(--t)}
+.theme-switch button.active{background:var(--s);color:var(--t);font-weight:800}
 
 body.eink .theme-switch button[data-theme="eink"]{
   background:#e1d8c6;color:#514b40;
@@ -62,6 +62,52 @@ body.eink *{scroll-behavior:auto}
 body.eink .month-card:hover{transform:none}
 body.eink .chip{transform:none}
 
+
+/* ---------- Questions, drill, reports, mobile ---------- */
+html{-webkit-text-size-adjust:100%}
+.q{display:flex;gap:11px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--l)}
+.q:first-child{border-top:0}
+.qs{flex:none;width:34px;height:34px;border:1px solid var(--l);border-radius:9px;background:none;color:var(--t);font-size:15px}
+.q.k .qs{background:var(--a);color:#fff;border-color:var(--a)}
+.q.r .qs{border-color:#d9822b;color:#d9822b}
+.qb{flex:1;cursor:pointer;line-height:1.5}
+.ans{margin:8px 0 0;padding:10px 12px;background:var(--s);border-radius:9px;color:var(--m);font-size:13px}
+.q.k .qb>b{color:var(--m)}
+.wprog{color:var(--m);font-size:12px;margin:-6px 0 8px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.links a,.ghost{border:1px solid var(--l);border-radius:9px;padding:9px 12px;color:var(--t);text-decoration:none;background:var(--p);font-size:12px}
+.wnav{display:flex;justify-content:space-between;gap:10px;margin-top:28px}
+.wnav button{flex:1;min-height:44px;border:1px solid var(--l);background:var(--p);color:var(--t);border-radius:10px}
+.hero .ghost{background:none;color:#fff;border:1px solid #ffffff44;margin-left:8px;min-height:40px}
+.reports{margin-top:40px}
+.reports ul{padding-left:18px;color:var(--m);line-height:1.65}
+.reports small{color:var(--m)}
+#drill{background:var(--p);border:1px solid var(--l);border-radius:15px;padding:26px}
+#drill h3{font-size:20px;line-height:1.35;margin:10px 0}
+#drill .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+#drill .acts button{min-height:44px;padding:0 16px;border:1px solid var(--l);background:var(--p);color:var(--t);border-radius:10px}
+.bnav{display:none}
+@media(max-width:900px){
+ body{padding-bottom:calc(66px + env(safe-area-inset-bottom))}
+ header{padding-top:env(safe-area-inset-top);height:calc(62px + env(safe-area-inset-top))}
+ aside{padding-top:calc(20px + env(safe-area-inset-top));overscroll-behavior:contain}
+ .link{padding:13px 10px;font-size:13px}
+ .bnav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:25;background:var(--p);border-top:1px solid var(--l);padding-bottom:env(safe-area-inset-bottom)}
+ .bnav button{flex:1;min-height:58px;border:0;background:none;color:var(--m);font-size:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+ .bnav button span{font-size:19px;color:var(--t)}
+}
+@media(max-width:600px){
+ header b small{display:none}
+ header b{font-size:13px;min-width:0}
+ .search{min-width:0;height:38px}
+ .search input{font-size:16px}
+ .theme-switch button{width:30px;height:30px}
+ .hero .primary,.hero .ghost{display:block;width:100%;margin:8px 0 0;min-height:46px}
+ .complete{float:none;display:block;width:100%;margin-bottom:14px;min-height:44px}
+ .week h2{font-size:24px}
+ .row{padding:11px 0}.tick{width:32px;height:32px;flex:none}
+ #drill{padding:18px}
+}
 </style>
 </head>
 <body>
@@ -75,15 +121,53 @@ body.eink .chip{transform:none}
 <aside id="side"><div class="sidehead"><span>INDEX · 26 WEEKS</span><button id="close" aria-label="Close menu">×</button></div><div class="progress"><div><span>Progress</span><b id="pct">0%</b></div><hr><span id="count">0 / 26 weeks</span></div><nav id="index"></nav></aside>
 <div id="shade"></div>
 <main>
-<section class="hero"><div><label>ANALOG IC / AMS</label><h1>From first principles<br><em>to interview-ready.</em></h1><p>Six months of devices, transistor circuits, amplifiers, feedback, stability, practical analog blocks and interview drills.</p><button class="primary" id="continue">Continue preparation →</button></div><div class="chip">ANALOG<br>CORE</div></section>
-<div class="stats"><div><b>26</b><small>WEEKS</small></div><div><b>6</b><small>MONTHS</small></div><div><b>100</b><small>QUESTIONS</small></div><div><b>5</b><small>MOCKS</small></div></div>
+<section class="hero"><div><label>ANALOG IC / AMS</label><h1>From first principles<br><em>to interview-ready.</em></h1><p>Six months of devices, transistor circuits, amplifiers, feedback, stability, practical analog blocks and interview drills.</p><button class="primary" id="continue">Continue preparation →</button><button class="ghost" id="drillBtn">Random drill</button></div><div class="chip">ANALOG<br>CORE</div></section>
+<div class="stats"><div><b>26</b><small>WEEKS</small></div><div><b>6</b><small>MONTHS</small></div><div><b id="qstat">0</b><small>QUESTIONS DONE</small></div><div><b>5</b><small>MOCKS</small></div></div>
 <section id="results" class="hide"><h2 id="resultTitle"></h2><div id="resultList"></div></section>
-<section id="roadmap"><label>ROADMAP</label><h2>Six months at a glance</h2><div id="cards" class="cards"></div></section>
+<section id="roadmap"><label>ROADMAP</label><h2>Six months at a glance</h2><div id="cards" class="cards"></div><div id="reports" class="reports"></div></section>
+<section id="drill" class="hide"></section>
 <section id="week" class="hide"></section>
 </main></div>
+<nav class="bnav"><button id="bHome"><span>⌂</span>Roadmap</button><button id="bDrill"><span>⚡</span>Drill</button><button id="bSearch"><span>⌕</span>Search</button><button id="bMenu"><span>☰</span>Weeks</button></nav>
 <script>
 const STUDY_DATA={"months": [{"name": "Month 1", "title": "Foundations", "weeks": [{"id": "week-1", "week": "Week 1", "title": "Circuit Analysis and Analog Intuition"}, {"id": "week-2", "week": "Week 2", "title": "MOSFET Device Fundamentals"}, {"id": "week-3", "week": "Week 3", "title": "Biasing and Basic Transistor Stages"}, {"id": "week-4", "week": "Week 4", "title": "Small-Signal Analysis"}]}, {"name": "Month 2", "title": "Core Analog Building Blocks", "weeks": [{"id": "week-5", "week": "Week 5", "title": "Current Mirrors"}, {"id": "week-6", "week": "Week 6", "title": "Differential Pair"}, {"id": "week-7", "week": "Week 7", "title": "Cascode and Gain Boosting"}, {"id": "week-8", "week": "Week 8", "title": "Single-Stage Amplifier Design"}]}, {"name": "Month 3", "title": "Frequency, Feedback and Stability", "weeks": [{"id": "week-9", "week": "Week 9", "title": "Frequency Response"}, {"id": "week-10", "week": "Week 10", "title": "Feedback"}, {"id": "week-11", "week": "Week 11", "title": "Miller Compensation"}, {"id": "week-12", "week": "Week 12", "title": "Stability and Compensation"}]}, {"name": "Month 4", "title": "Practical Analog Blocks", "weeks": [{"id": "week-13", "week": "Week 13", "title": "Op-Amp Architectures"}, {"id": "week-14", "week": "Week 14", "title": "OTA Design"}, {"id": "week-15", "week": "Week 15", "title": "Common-Mode Feedback"}, {"id": "week-16", "week": "Week 16", "title": "Bandgap and Voltage References"}, {"id": "week-17", "week": "Week 17", "title": "LDO and Power Management"}, {"id": "week-18", "week": "Week 18", "title": "Comparators"}]}, {"name": "Month 5", "title": "Nonidealities, Layout and Mixed Signal", "weeks": [{"id": "week-19", "week": "Week 19", "title": "Analog Noise"}, {"id": "week-20", "week": "Week 20", "title": "Matching, Offset and Analog Layout"}, {"id": "week-21", "week": "Week 21", "title": "ADC/DAC Fundamentals"}, {"id": "week-22", "week": "Week 22", "title": "Switched-Capacitor Circuits"}, {"id": "week-23", "week": "Week 23", "title": "Optional Advanced Breadth"}]}, {"name": "Month 6", "title": "Interview Mode", "weeks": [{"id": "week-24", "week": "Week 24", "title": "Full Design Problems"}, {"id": "week-25", "week": "Week 25", "title": "Mock Interview Week"}, {"id": "week-26", "week": "Week 26", "title": "Final Revision"}]}], "weeks": [{"id": "week-1", "week": "Week 1", "title": "Circuit Analysis and Analog Intuition", "month": "Month 1", "monthTitle": "Foundations", "topics": ["KCL, KVL, nodal analysis", "Thevenin/Norton", "RC/RLC response", "Poles and zeros"]}, {"id": "week-2", "week": "Week 2", "title": "MOSFET Device Fundamentals", "month": "Month 1", "monthTitle": "Foundations", "topics": ["NMOS/PMOS operation", "VTH and overdrive", "gm and ro", "Body effect", "Channel-length modulation", "gm/ID"]}, {"id": "week-3", "week": "Week 3", "title": "Biasing and Basic Transistor Stages", "month": "Month 1", "monthTitle": "Foundations", "topics": ["Common-source", "Common-gate", "Source follower", "Source degeneration", "Headroom"]}, {"id": "week-4", "week": "Week 4", "title": "Small-Signal Analysis", "month": "Month 1", "monthTitle": "Foundations", "topics": ["Small-signal model", "Gain", "Input/output resistance", "Miller effect", "Bandwidth"]}, {"id": "week-5", "week": "Week 5", "title": "Current Mirrors", "month": "Month 2", "monthTitle": "Core Analog Building Blocks", "topics": ["Basic current mirror", "Mirror ratio", "Compliance", "Cascode mirror", "Mismatch"]}, {"id": "week-6", "week": "Week 6", "title": "Differential Pair", "month": "Month 2", "monthTitle": "Core Analog Building Blocks", "topics": ["Large-signal steering", "Differential gain", "CMRR", "Common-mode range", "Offset"]}, {"id": "week-7", "week": "Week 7", "title": "Cascode and Gain Boosting", "month": "Month 2", "monthTitle": "Core Analog Building Blocks", "topics": ["Cascode", "Folded cascode", "Telescopic cascode", "Gain boosting", "Headroom"]}, {"id": "week-8", "week": "Week 8", "title": "Single-Stage Amplifier Design", "month": "Month 2", "monthTitle": "Core Analog Building Blocks", "topics": ["Single-stage amplifier design", "Gain/bandwidth trade-off", "Output swing", "Noise", "Power"]}, {"id": "week-9", "week": "Week 9", "title": "Frequency Response", "month": "Month 3", "monthTitle": "Frequency, Feedback and Stability", "topics": ["Poles and zeros", "Bode plots", "Unity-gain frequency", "Time constants"]}, {"id": "week-10", "week": "Week 10", "title": "Feedback", "month": "Month 3", "monthTitle": "Frequency, Feedback and Stability", "topics": ["Negative feedback", "Loop gain", "Sensitivity", "Feedback topologies"]}, {"id": "week-11", "week": "Week 11", "title": "Miller Compensation", "month": "Month 3", "monthTitle": "Frequency, Feedback and Stability", "topics": ["Miller capacitor", "Pole splitting", "RHP zero", "Slew rate"]}, {"id": "week-12", "week": "Week 12", "title": "Stability and Compensation", "month": "Month 3", "monthTitle": "Frequency, Feedback and Stability", "topics": ["Phase margin", "Gain margin", "Compensation", "Load stability"]}, {"id": "week-13", "week": "Week 13", "title": "Op-Amp Architectures", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["Two-stage op-amp", "Telescopic OTA", "Folded-cascode OTA", "Class-AB"]}, {"id": "week-14", "week": "Week 14", "title": "OTA Design", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["OTA sizing", "gm/ID", "GBW", "Power", "Noise"]}, {"id": "week-15", "week": "Week 15", "title": "Common-Mode Feedback", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["CMFB purpose", "CM sensing", "CM control", "CMFB stability"]}, {"id": "week-16", "week": "Week 16", "title": "Bandgap and Voltage References", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["PTAT/CTAT", "Bandgap", "Temperature cancellation", "Startup", "PSRR"]}, {"id": "week-17", "week": "Week 17", "title": "LDO and Power Management", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["LDO architecture", "Dropout", "PSRR", "Load transient", "Stability"]}, {"id": "week-18", "week": "Week 18", "title": "Comparators", "month": "Month 4", "monthTitle": "Practical Analog Blocks", "topics": ["Regeneration", "Offset", "Kickback", "Dynamic comparator", "Speed/power"]}, {"id": "week-19", "week": "Week 19", "title": "Analog Noise", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["Thermal noise", "Flicker noise", "Shot noise", "Input-referred noise"]}, {"id": "week-20", "week": "Week 20", "title": "Matching, Offset and Analog Layout", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["Mismatch", "Pelgrom intuition", "Common-centroid", "Interdigitation", "Parasitics"]}, {"id": "week-21", "week": "Week 21", "title": "ADC/DAC Fundamentals", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["Sampling", "Quantization", "INL/DNL", "ENOB", "SAR", "Sigma-delta"]}, {"id": "week-22", "week": "Week 22", "title": "Switched-Capacitor Circuits", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["Switched-capacitor resistor", "Charge injection", "Clock feedthrough", "kT/C"]}, {"id": "week-23", "week": "Week 23", "title": "Optional Advanced Breadth", "month": "Month 5", "monthTitle": "Nonidealities, Layout and Mixed Signal", "topics": ["PLLs", "VCOs", "Charge pumps", "Sensor interfaces", "RF/SerDes breadth"]}, {"id": "week-24", "week": "Week 24", "title": "Full Design Problems", "month": "Month 6", "monthTitle": "Interview Mode", "topics": ["Amplifier design problems", "OTA design", "Op-amp design", "LDO design", "Comparator design"]}, {"id": "week-25", "week": "Week 25", "title": "Mock Interview Week", "month": "Month 6", "monthTitle": "Interview Mode", "topics": ["Fundamentals mock", "Transistor-level mock", "Op-amp/stability mock", "Mixed-signal mock", "Resume defense"]}, {"id": "week-26", "week": "Week 26", "title": "Final Revision", "month": "Month 6", "monthTitle": "Interview Mode", "topics": ["Formula revision", "100-question checklist", "Whiteboard circuits", "Final mock"]}]};
 const D=STUDY_DATA;
+const Q={
+1:[["Find the Thevenin equivalent of a network with a dependent source.","Vth = open-circuit voltage; Rth = Vtest/Itest with independent sources zeroed (dependent stay)."],["RC step response: time constant, 10–90% rise time?","tau=RC; tr≈2.2RC; BW=1/(2πRC), so tr·BW≈0.35."],["Series RLC: pole locations and what Q tells you.","s²+(R/L)s+1/LC; Q=(1/R)√(L/C); Q>0.5 gives complex poles and ringing."],["Effect of a pole vs a zero on magnitude and phase?","Pole: −20 dB/dec, −45° at ωp. Zero: opposite. RHP zero adds gain but lags phase."]],
+2:[["Why gm=2ID/Vov in strong inversion but ID/(nVT) in weak?","Square law vs exponential; gm/ID saturates at 1/(nVT)."],["What is body effect and how does it change VTH?","VSB raises VTH via γ; adds gmb=η·gm at the source."],["Derive ro and explain why longer L gives more intrinsic gain.","ro=1/(λID), λ∝1/L; gm·ro=2/(λVov)."],["When choose high vs low gm/ID?","High: efficiency, noise, low power. Low: speed, small area, linearity."]],
+3:[["Compare CS, CG and SF: gain, Rin, Rout.","CS: −gm(ro||RD), Rin∞. CG: ~gmRD, Rin~1/gm. SF: <1, Rout~1/gm."],["What does source degeneration do to gain, linearity, noise?","Gm→gm/(1+gmRS); more linear, higher Rout; adds noise, eats headroom."],["Bias a CS stage to stay saturated over PVT.","Mirror-based bias; keep VDS≥Vov with margin; fixes swing."],["Why is SF gain below 1 and how does body effect hurt?","Av=gm/(gm+gmb+gds…) — gmb reduces it."]],
+4:[["Derive gain of CS with a diode-connected load.","−gm1/gm2 = −√((W/L)1/(W/L)2), only weakly bias-dependent."],["Apply Miller to Cgd: what pole results?","Cin≈Cgs+Cgd(1+|A|); fp=1/(2πRsCin)."],["Rout looking into a degenerated drain?","≈ro(1+gmRS)+RS ≈ gm·ro·RS."],["Why is DC gain alone not enough to predict bandwidth?","Need pole locations; use open-circuit time constants."]],
+5:[["Why is a basic mirror inaccurate and how to fix it?","λ makes IOUT depend on VDS mismatch; add cascode, longer L, match VDS."],["Minimum output voltage of a cascode mirror?","Simple: Vth+2Vov; wide-swing: 2Vov."],["How to get accurate 1:N ratios in layout?","Unit devices, same L, common centroid, dummies."],["Mirror output is 20% off — debug it.","Check saturation, VDS mismatch, gradients, headroom, leakage."]],
+6:[["Explain large-signal steering: what ΔVin switches all the current?","√2·Vov."],["Differential gain and CMRR with finite tail impedance.","Ad=gm(ro||RD); Acm≈RD/(2gmRSS); CMRR≈2gmRSS."],["How does mismatch create input offset?","Vos≈ΔVth+(Vov/2)(ΔRD/RD+Δ(W/L)/(W/L))."],["What sets input common-mode range?","Low: VGS+Vov(tail). High: VDD−|VSG(load)|+Vth."]],
+7:[["Why does cascoding raise Rout to ≈gm·ro²?","M2 source sees ro1, degenerating M2."],["Telescopic vs folded cascode: swing, power, ICMR, noise.","Telescopic: best gain/noise/power, less swing. Folded: wider ICMR, extra current."],["How does gain boosting work and what is the catch?","Aux amp on cascode gate multiplies Rout; adds doublet, stability and power cost."],["Headroom budget of a cascode at 1.2 V.","Stack Vov's + margins; wide-swing biasing."]],
+8:[["Design a stage for 40 dB, 100 MHz GBW into 1 pF.","gm=2π·GBW·CL≈630 µS; pick gm/ID→ID; L for gain."],["Trade-off between gain, bandwidth and swing.","Longer L: gain up, speed down; cascode: gain up, swing down."],["Which noise sources dominate and how to cut them?","Input pair gm↑, load gm↓, area for flicker."],["Power spec halves — what breaks?","gm falls: lose GBW or lower Vov (noise, swing)."]],
+9:[["Sketch Bode: poles at 1 and 10 MHz, zero at 20 MHz.","Slopes −20, −40, then −20 dB/dec; phase accordingly."],["Open-circuit time constants: use and limits?","ωh≈1/ΣRiCi; pessimistic when one pole dominates."],["Relation between unity-gain frequency and gm/C?","ωu=gm/CL for a single stage."],["What does a RHP zero do to stability?","Adds gain and −phase; hurts PM."]],
+10:[["Four feedback topologies and their impedance effects.","Series-shunt (V amp): Rin↑ Rout↓; others analogous."],["Derive closed-loop gain and sensitivity.","Acl=A/(1+T); sensitivity ≈1/(1+T)."],["Feedback effect on bandwidth and distortion?","Both improve by (1+T); gain drops by same factor."],["How do you find loop gain with no obvious break?","Return-ratio or Middlebrook; break loop with correct loading."]],
+11:[["Explain pole splitting with Cc.","p1≈1/(gm2R1R2Cc) moves in; p2≈gm2/CL moves out."],["Origin of RHP zero and how to remove it.","Feedforward through Cc, z=gm2/Cc; add Rz≈1/gm2 or buffer."],["Slew rate of a two-stage op-amp?","SR=ISS/Cc (or output-stage limit)."],["Rule of thumb to choose Cc for 60° PM?","Cc≈0.2–0.5·CL; gm2≥~2.2·gm1 with p2≥2.2·GBW."]],
+12:[["PM vs step-response overshoot.","60° ≈ ~10%; 45° ≈ ~23%."],["Define and measure gain margin.","−|T| at the −180° frequency."],["How does CL change stability?","Pushes p2 down, lowers PM."],["Why check stability across PVT and loads?","Poles and gm move; worst case may be different corner."]],
+13:[["Compare two-stage, telescopic and folded-cascode op-amps.","Gain, swing, speed, power, ICMR trade-offs."],["Why Class-AB output stage?","Efficient drive with low quiescent current."],["How to make a rail-to-rail input stage?","Complementary pairs; handle gm variation."],["Pick an op-amp for 80 dB / 60° PM.","Two-stage or gain-boosted cascode + Miller."]],
+14:[["Sizing flow from GBW, CL, power.","GBW→gm→ID via gm/ID→W/L; check swing and noise."],["Use gm/ID look-up tables to size input pair.","Pick gm/ID for speed/noise; get ID/W from chart."],["GBW vs slew: linear vs large-signal settling.","Slew adds nonlinear time; SR=I/C."],["Where does OTA noise come from?","Input pair + mirror loads; scale by gm ratios."]],
+15:[["Why need CMFB in fully differential amps?","CM output undefined; high CM gain."],["Continuous-time vs switched-cap CM sensing.","Resistors load DM gain; SC sampled, no loading."],["Where is CMFB correction injected?","Load current source or tail."],["Stability of the CMFB loop?","Own loop, separate compensation; check interaction with DM."]],
+16:[["Explain PTAT+CTAT cancellation with numbers.","VBE≈−2 mV/K, VT≈+0.086 mV/K; scale by ~17 → ≈1.2 V."],["Why does a bandgap need startup?","Zero-current is a stable state."],["Effect of op-amp offset on Vref?","Multiplied by (1+R2/R1); large."],["How to get sub-1 V references?","Current-mode (Banba/Kuijk), resistors sum currents."]],
+17:[["LDO structure; PMOS vs NMOS pass device.","Error amp + pass + divider; PMOS: low dropout; NMOS: needs bias."],["What sets dropout?","Pass device Rds(on)·ILOAD / VDS,sat."],["Improving load transient in a cap-less LDO.","Faster loop, output cap, adaptive bias."],["Stability vs load current and ESR.","Output pole moves with load; ESR zero helps."]],
+18:[["How does regeneration set speed?","τ=C/gm; time ∝ ln(ΔVfinal/ΔVin)."],["Offset in a comparator and how to cancel it.","Auto-zero, trim; preamp reduces input-referred latch offset."],["What is kickback and how to reduce it?","Charge from LC nodes to inputs; isolate with preamp or switches."],["StrongARM latch phases.","Reset, integrate, regenerate, decision."]],
+19:[["MOSFET thermal noise expression.","4kTγ/gm at input; γ≈2/3."],["Flicker noise: corner and reduction.","Bigger WL, PMOS, chopping."],["Input-referred noise of a diff amp with active load.","Input pair + load: (1+gm3/gm1) factor."],["kT/C noise in sampling.","Independent of R; sets minimum C."]],
+20:[["State Pelgrom's law and use it.","σ(ΔVth)=A/√(WL); double area → 0.7σ."],["Common-centroid vs interdigitation.","Centroid cancels gradients; interdigitation is a subset."],["Layout tips for a diff pair or mirror.","Dummies, guard rings, symmetry, LDE-aware."],["Parasitic coupling and mitigation.","Shielding, spacing, orthogonal routes."]],
+21:[["Ideal SNR and ENOB.","SNR=6.02N+1.76 dB; ENOB=(SINAD−1.76)/6.02."],["INL vs DNL; missing codes.","DNL step error, INL cumulative; DNL<−1 LSB = missing code."],["SAR ADC operation and limits.","Binary search; DAC settling, comparator noise, mismatch."],["Sigma-delta: why does OSR help?","Noise shaping + oversampling; +6–9 dB/octave."]],
+22:[["SC resistor equivalence.","Req=1/(fC)."],["Charge injection mitigation.","Dummy switches, bottom-plate sampling, differential."],["Size C for N-bit kT/C.","Ensure kT/C noise below quantization noise."],["Settling requirements for SC integrator amp.","GBW and slew for 0.5 LSB in half period."]],
+23:[["PLL block diagram and stability.","PFD, CP, filter, VCO, divider; type II with zero for PM."],["VCO phase noise (Leeson).","Q, power, noise factor; 1/f³ corner."],["Charge-pump mismatch effect.","Reference spurs, static phase error."]],
+24:[["Walk through designing an amp from a spec sheet.","Specs → topology → hand-calc → sizing → sim → corners."],["Debug simulation showing low PM.","Find p2, check load, gm2, Cc; re-simulate."],["Explain trade-offs aloud as you design.","State assumptions; keep it a conversation."]],
+25:[["Walk me through your best project.","Spec, architecture, your role, result, lessons."],["Whiteboard an unfamiliar transistor-level circuit.","Identify blocks, bias, paths, worst case."],["Tell me about a failure (STAR).","Situation, task, action, result, what you changed."]],
+26:[["Recite key formulas from memory.","gm, ro, Miller, noise, PM, kT/C, SNR."],["Draw five circuits without notes.","Mirror, diff pair, folded cascode, Miller op-amp, bandgap."],["Timed final mock.","Fundamentals, design, project defense in 45 min."]]
+};
+const qs=w=>Q[+w.id.slice(5)]||[];
+let qd=JSON.parse(localStorage.getItem('analog-q')||'{}');
+const qsave=()=>{localStorage.setItem('analog-q',JSON.stringify(qd));qstat()};
+const qtot=D.weeks.reduce((n,w)=>n+qs(w).length,0);
+function qstat(){$('#qstat').textContent=Object.values(qd).filter(v=>v===1).length+'/'+qtot}
+const enc=encodeURIComponent;
+const REPORTS=`<label>COMMUNITY REPORTS</label><h2>What candidates say</h2><ul><li>Interviewers often ask about your own circuits: draw the op-amp from your project and predict what changes if an impedance moves.</li><li>Breadth is common: RC circuits, op-amps, LDOs, bandgaps, feedback and stability; Razavi-style MOSFET problems are frequently mentioned.</li><li>Specialist roles go deep into the domain, e.g. clocking roles get CDR bandwidth and phase-interpolator questions.</li><li>One candidate described a second interviewer drilling one dynamic-comparator question and ending in a rejection; replies advised building circuit intuition over guessing questions.</li><li>Other reports mention written tests with C and aptitude, layout of a diff amp, latch-up, and swapping MOS for BJT in the same circuit.</li><li>The HR/behavioural round is sometimes described as the hardest.</li></ul><small>Paraphrased from Glassdoor, Blind and Scribd candidate reports.</small><div class="links"><a target="_blank" rel="noopener" href="https://www.reddit.com/r/chipdesign/search/?q=analog%20interview&restrict_sr=1">r/chipdesign: interviews</a><a target="_blank" rel="noopener" href="https://www.reddit.com/search/?q=analog%20IC%20design%20interview%20experience">Reddit: experiences</a></div>`;
+
 const $=s=>document.querySelector(s);
 let done=JSON.parse(localStorage.getItem('analog-progress')||'[]');
 
@@ -99,19 +183,20 @@ function renderCards(){
 function render(){
   renderIndex(); renderCards();
   const p=Math.round(done.length/26*100);
-  $('#pct').textContent=p+'%'; $('#count').textContent=`${done.length} / 26 weeks`;
+  $('#reports').innerHTML=REPORTS;qstat();$('#pct').textContent=p+'%'; $('#count').textContent=`${done.length} / 26 weeks`;
 }
-function openWeek(id){
-  const w=D.weeks.find(x=>x.id===id); if(!w)return;
+function wprog(){const e=$('#wprog');if(!e)return;const id=location.hash.slice(1);const w=D.weeks.find(x=>x.id===$('#week .complete')?.dataset.complete);if(!w)return;const n=qs(w).filter((_,i)=>qd[w.id+'-'+i]===1).length;e.textContent=n+' / '+qs(w).length+' known'}
+function openWeek(id){$('#drill').classList.add('hide');
+  const w=D.weeks.find(x=>x.id===id); if(!w)return; const ix=D.weeks.indexOf(w),prev=D.weeks[ix-1],next=D.weeks[ix+1];
   $('#roadmap').classList.add('hide'); $('#results').classList.add('hide'); $('#week').classList.remove('hide');
-  $('#week').innerHTML=`<button class="complete ${done.includes(id)?'done':''}" data-complete="${id}">${done.includes(id)?'✓ Completed':'Mark complete'}</button><label>${w.month} · ${w.week}</label><h2>${w.title}</h2><p>Learn → derive → simulate → explain aloud.</p><h4>Study focus</h4><ul>${w.topics.map(x=>`<li>${x}</li>`).join('')}</ul><h4>Interview questions to practise</h4><ul><li>Derive the key equations without notes.</li><li>Draw the small-signal model and calculate gain.</li><li>Identify headroom, poles, noise and major trade-offs.</li><li>Explain what changes if power, speed, load or supply specifications move.</li><li>Design or debug the circuit on a whiteboard.</li></ul>`;
-  history.replaceState(null,'','#'+id); closeSide(); window.scrollTo({top:0,behavior:'smooth'});
+  $('#week').innerHTML=`<button class="complete ${done.includes(id)?'done':''}" data-complete="${id}">${done.includes(id)?'✓ Completed':'Mark complete'}</button><label>${w.month} · ${w.week}</label><h2>${w.title}</h2><p>Learn → derive → simulate → explain aloud.</p><h4>Study focus</h4><ul>${w.topics.map(x=>`<li>${x}</li>`).join('')}</ul><h4>Interview questions</h4><div class="wprog" id="wprog"></div>${qs(w).map((x,i)=>`<div class="q ${qd[id+'-'+i]===1?'k':qd[id+'-'+i]===2?'r':''}" data-k="${id}-${i}"><button class="qs" data-q="${id}-${i}" aria-label="Mark status">${qd[id+'-'+i]===1?'✓':qd[id+'-'+i]===2?'⚑':'○'}</button><div class="qb" data-ans="1"><b>${x[0]}</b><p class="ans hide">${x[1]}</p></div></div>`).join('')}<p class="wprog">Tap ○ to cycle: ✓ known, ⚑ review. Tap a question to reveal the key points.</p><div class="links"><a target="_blank" rel="noopener" href="https://www.reddit.com/r/chipdesign/search/?q=${enc(w.title)}&restrict_sr=1">Reddit: ${w.title}</a><a target="_blank" rel="noopener" href="https://www.reddit.com/search/?q=${enc(w.title+' analog interview')}">Reddit: interviews</a><a target="_blank" rel="noopener" href="https://www.glassdoor.com/Interview/analog-design-engineer-interview-questions-SRCH_KO0,22.htm">Glassdoor reports</a></div><div class="wnav">${prev?`<button data-open="${prev.id}">← ${prev.week}</button>`:'<span></span>'}${next?`<button data-open="${next.id}">${next.week} →</button>`:'<span></span>'}</div>`;
+  wprog();history.replaceState(null,'','#'+id); closeSide(); window.scrollTo({top:0,behavior:'smooth'});
 }
-function searchNow(){
+function searchNow(){$('#drill').classList.add('hide');
   const q=$('#search').value.toLowerCase().trim();
   if(!q){$('#results').classList.add('hide');$('#roadmap').classList.remove('hide');$('#week').classList.add('hide');return}
   $('#roadmap').classList.add('hide'); $('#week').classList.add('hide'); $('#results').classList.remove('hide');
-  const h=D.weeks.filter(w=>(w.title+' '+w.month+' '+w.topics.join(' ')).toLowerCase().includes(q));
+  const h=D.weeks.filter(w=>(w.title+' '+w.month+' '+w.topics.join(' ')+' '+qs(w).map(x=>x[0]).join(' ')).toLowerCase().includes(q));
   $('#resultTitle').textContent=`${h.length} result${h.length===1?'':'s'} for “${q}”`;
   $('#resultList').innerHTML=h.map(w=>`<div class="result" data-open="${w.id}"><b>${w.week} · ${w.title}</b><small>${w.month} · ${w.topics.join(' · ')}</small></div>`).join('')||'<div class="result">No matches. Try “MOS”, “differential”, “stability”, “noise”, “LDO” or “ADC”.</div>';
 }
@@ -139,6 +224,29 @@ $('#close').onclick=closeSide; $('#shade').onclick=closeSide;
 $('#search').addEventListener('keydown',e=>{if(e.key==='Escape'){e.target.value='';searchNow();e.target.blur()}});
 document.addEventListener('keydown',e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==='k'){e.preventDefault();$('#search').focus()}});
 document.querySelectorAll('[data-theme]').forEach(b=>b.addEventListener('click',()=>setTheme(b.dataset.theme)));
+
+function drill(){
+  const all=[];D.weeks.forEach(w=>qs(w).forEach((x,i)=>{const k=w.id+'-'+i;if(qd[k]!==1)all.push({k,w,x,r:qd[k]===2})}));
+  $('#roadmap').classList.add('hide');$('#results').classList.add('hide');$('#week').classList.add('hide');$('#drill').classList.remove('hide');
+  if(!all.length){$('#drill').innerHTML='<label>DRILL</label><h3>All questions marked known. Reset a few to keep practising.</h3>';return}
+  const pool=all.filter(a=>a.r).length&&Math.random()<.6?all.filter(a=>a.r):all;const c=pool[Math.floor(Math.random()*pool.length)];
+  $('#drill').innerHTML=`<label>RANDOM DRILL · ${c.w.week} · ${c.w.title}</label><h3>${c.x[0]}</h3><p class="ans hide" id="dans">${c.x[1]}</p><div class="acts"><button data-reveal="1">Reveal</button><button data-mark="${c.k}:1">✓ Known</button><button data-mark="${c.k}:2">⚑ Review</button><button data-mark="skip">Skip →</button></div>`;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function home(){$('#search').value='';$('#drill').classList.add('hide');searchNow();closeSide();window.scrollTo({top:0,behavior:'smooth'})}
+document.addEventListener('click',e=>{
+  const t=e.target,qb=t.closest('[data-q]');
+  if(qb){const k=qb.dataset.q,v=((qd[k]||0)+1)%3;v?qd[k]=v:delete qd[k];qsave();const r=qb.closest('.q');r.className='q '+(v===1?'k':v===2?'r':'');qb.textContent=v===1?'✓':v===2?'⚑':'○';wprog();return}
+  const a=t.closest('[data-ans]');if(a){a.querySelector('.ans').classList.toggle('hide');return}
+  if(t.closest('[data-reveal]')){$('#dans').classList.remove('hide');return}
+  const m=t.closest('[data-mark]');if(m){const [k,v]=m.dataset.mark.split(':');if(v){qd[k]=+v;qsave()}drill()}
+});
+let tx=0,ty=0;const wk=$('#week');
+wk.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+wk.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;if(Math.abs(dx)>90&&Math.abs(dy)<45){const b=wk.querySelector(dx<0?'.wnav button:last-child':'.wnav button:first-child');if(b&&b.dataset.open)openWeek(b.dataset.open)}});
+$('#drillBtn').onclick=drill;$('#bDrill').onclick=drill;$('#bHome').onclick=home;
+$('#bSearch').onclick=()=>{window.scrollTo({top:0});$('#search').focus()};
+$('#bMenu').onclick=()=>{$('#side').classList.add('open');$('#shade').classList.add('show')};
 setTheme(localStorage.getItem('analog-theme')||'light');
 render();
 if(location.hash.startsWith('#week-'))openWeek(location.hash.slice(1));
